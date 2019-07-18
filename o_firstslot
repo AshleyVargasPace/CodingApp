@@ -1,0 +1,185 @@
+Information about object: o_firstslot
+Sprite: slot
+Solid: false
+Visible: true
+Depth: -2
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+execute code:
+
+grab = false;
+xx = 0;
+yy = 0;
+
+Step Event:
+
+execute code:
+
+if (0<ds_list_size(global.code))
+{
+if (grab == false)
+{
+    
+}
+else
+{
+ x = mouse_x + xx;
+ y = mouse_y + yy;
+}
+}
+
+Collision Event with object o_2:
+
+execute code:
+
+instance_destroy(o_2);
+instance_create( 886, 391, o_2);
+
+if (ds_list_find_value(global.code, 0))
+{
+global.two1 = true;
+}
+
+
+Collision Event with object o_3:
+
+execute code:
+
+instance_destroy(o_3);
+instance_create( 952, 391, o_3);
+
+if (ds_list_find_value(global.code, 0))
+{
+if global.two1 = false{
+global.three1 = true;
+}
+
+if global.two1 = true{
+global.two1 = false;
+global.three1 = true;
+}
+}
+
+
+Collision Event with object o_grid:
+
+execute code:
+
+instance_destroy(o_firstslot);
+global.two = false;
+
+ds_list_delete(global.code, 0);
+instance_create( 45, 534, o_firstslot);
+
+
+
+Mouse Event for Left Pressed:
+
+execute code:
+
+if (0<ds_list_size(global.code))
+{
+grab = true;
+depth = -3;
+xx = x - mouse_x;
+yy = y - mouse_y;
+}
+
+Mouse Event for Left Released:
+
+execute code:
+
+if (0<ds_list_size(global.code))
+{
+grab = false;
+depth = -3;
+
+
+
+instance_destroy(o_firstslot);
+instance_create( 45, 534, o_firstslot);
+}
+
+Draw Event:
+
+execute code:
+
+if (0<ds_list_size(global.code))
+{
+val = ds_list_find_value(global.code,0);
+            if (val == o_up) && (global.two1 == false) && (global.three1 == false)
+            {
+                draw_sprite(upblock, 0, x, y);
+            }
+            if (val == o_down) && (global.two1 == false)  && (global.three1 == false)
+            {
+                draw_sprite(downblock, 0, x, y);
+            }
+            if (val == o_left) && (global.two1 == false)  && (global.three1 == false)
+            {
+                draw_sprite(leftblock, 0, x, y);
+            }
+            if (val == o_right) && (global.two1 == false)  && (global.three1 == false)
+            {
+                draw_sprite(rightblock, 0, x, y);
+            }
+            if (val == o_loopstart) && (global.two1 == false)  && (global.three1 == false)
+            {
+                draw_sprite(loopstart, 0, x, y);
+            }
+            if (val == o_loopend)
+            {
+                draw_sprite(loopend, 0, x, y);
+            }
+            if (val == o_up) && (global.two1 == true)
+            {
+                draw_sprite(upblock2, 0, x, y);
+            }
+            if (val == o_down) && (global.two1 == true)
+            {
+                draw_sprite(downblock2, 0, x, y);
+            }
+            if (val == o_left) && (global.two1 == true)
+            {
+                draw_sprite(leftblock2, 0, x, y);
+            }
+            if (val == o_right) && (global.two1 == true)
+            {
+                draw_sprite(rightblock2, 0, x, y);
+            }
+            if (val == o_pickup) 
+            {
+                draw_sprite(pickup, 0, x, y);
+            }
+            if (val == o_drop)
+            {
+                draw_sprite(drop, 0, x, y);
+            }
+             if (val == o_loopstart) && (global.two1 == true)
+            {
+                draw_sprite(loopstart2, 0, x, y);
+            }
+            if (val == o_up) && (global.three1 == true)
+            {
+                draw_sprite(upblock3, 0, x, y);
+            }
+            if (val == o_down) && (global.three1 == true)
+            {
+                draw_sprite(downblock3, 0, x, y);
+            }
+            if (val == o_left) && (global.three1 == true)
+            {
+                draw_sprite(leftblock3, 0, x, y);
+            }
+            if (val == o_right) && (global.three1 == true)
+            {
+                draw_sprite(rightblock3, 0, x, y);
+            }
+            }
+
