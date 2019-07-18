@@ -1,0 +1,418 @@
+Information about object: o_go
+Sprite: go
+Solid: false
+Visible: true
+Depth: -2
+Persistent: false
+Parent: 
+Children: 
+Mask: 
+
+No Physics Object
+Create Event:
+
+set the sprite to go with subimage 0 and speed 0
+execute code:
+
+global.coding = false;
+upcounter = 0;
+global.flip = 0;
+i = 0;
+t=0;
+L = false;
+global.two1 = false;
+global.two2 = false;
+global.two3 = false;
+global.two4 = false;
+global.two5 = false;
+global.two6 = false;
+global.two7 = false;
+global.two8 = false;
+global.two9 = false;
+global.two10 = false;
+global.two11= false;
+global.two12 = false;
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+loop = false;
+itemhold = false;
+global.number = 0;
+global.lc = 1;
+
+global.three1 = false;
+global.three2 = false;
+global.three3 = false;
+global.three4 = false;
+global.three5 = false;
+global.three6 = false;
+global.three7 = false;
+global.three8 = false;
+global.three9 = false;
+global.three10 = false;
+global.three11= false;
+global.three12 = false;
+
+
+Alarm Event for alarm 0:
+
+execute code:
+
+if (0<ds_list_size(global.code))
+
+{
+ val = ds_list_find_value(global.code, i);
+            if (val == o_up) 
+            {
+            alarm[1] = room_speed / 30;
+            alarm[0] = 0;
+            }
+            if (val == o_down) 
+            {
+            alarm[2] = room_speed / 30;
+            alarm[0] = 0;
+            }
+            if (val == o_left)
+            {
+            alarm[3] = room_speed / 30;
+            alarm[0] = 0;
+            global.flip = -1;
+            }
+            if (val == o_right)
+            {
+            alarm[4] = room_speed / 30;
+            alarm[0] = 0;
+            global.flip = 0;
+            }
+            if (val == o_loopstart)
+            {
+            alarm[0] = 0;
+            loops = true;
+            }
+            if (val == o_loopend)
+            {
+            alarm[0] = 0;
+            if loops = true{
+            loop = true;}
+            }
+            if (val == o_pickup)
+            {
+            alarm[0] = 0;
+            if global.itemtouch = true
+                {
+                instance_destroy(o_item);
+                itemhold = true;
+                }
+            }
+            if (val == o_drop)
+            {
+            alarm[0] = 0;
+            if itemhold = true{
+            instance_create(chara.x, chara.y + 50, o_item);
+            itemhold = false;
+            }
+            }
+          
+
+if ((global.two1 == true) && (i == 0)) || ((global.two2 == true) && (i == 1)) || ((global.two3 == true) && (i == 2)) || ((global.two4 == true) && (i == 3))
+|| ((global.two5 == true) && (i == 4)) || ((global.two6 == true) && (i == 5)) || ((global.two7 == true) && (i == 6)) || ((global.two8 == true) && (i == 7))
+|| ((global.two9 == true) && (i == 8)) || ((global.two10 == true) && (i == 9)) || ((global.two11 == true) && (i == 10)) || ((global.two12 == true) && (i == 11))
+{
+    i-=1
+
+
+if i = -1{global.two1 = false;}
+if i = 0{global.two2 = false;}
+if i = 1{global.two3 = false;}
+if i = 2{global.two4 = false;}
+if i = 3{global.two5 = false;}
+if i = 4{global.two6 = false;}
+if i = 5{global.two7 = false;}
+if i = 6{global.two8 = false;}
+if i = 7{global.two9 = false;}
+if i = 8{global.two10 = false;}
+if i = 9{global.two11 = false;}
+if i = 10{global.two12 = false;}
+}
+
+
+if ((global.three1 == true) && (i == 0)) || ((global.three2 == true) && (i == 1)) || ((global.three3 == true) && (i == 2)) || ((global.three4 == true) && (i == 3))
+|| ((global.three5 == true) && (i == 4)) || ((global.three6 == true) && (i == 5)) || ((global.three7 == true) && (i == 6)) || ((global.three8 == true) && (i == 7))
+|| ((global.three9 == true) && (i == 8)) || ((global.three10 == true) && (i == 9)) || ((global.three11 == true) && (i == 10)) || ((global.three12 == true) && (i == 11))
+{
+    i-=1
+    t+=1
+
+
+if t = 2 && (global.three1 == true)
+{global.three1 = false;
+t -=2;
+}
+if t = 2 && (global.three2 == true){global.three2 = false;
+t-=2;}
+if t = 2 && (global.three3 == true){global.three3 = false;
+t -=2;}
+if t = 2 && (global.three4 == true){global.three4 = false;
+t -=2;}
+if t = 2{global.three5 = false;
+t -=2;}
+if t = 2{global.three6 = false;
+t -=2;}
+if t = 2{global.three7 = false;
+t -=2;}
+if t = 2{global.three8 = false;
+t -=2;}
+if t = 2{global.three9 = false;
+t -=2;}
+if t = 2{global.three10 = false;
+t -=2;}
+if t = 2{global.three11 = false;
+t -=2;}
+if t = 2{global.three12 = false;
+t -=2;}
+}
+
+
+if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+
+i += 1;
+
+
+switch (L)
+{
+case false:
+if (loop == true)
+{
+ i = ds_list_find_index(global.code, o_loopstart);
+ startpos = ds_list_find_index(global.code, o_loopstart)
+ endpos = ds_list_find_index(global.code, o_loopend)
+ listposition = endpos - startpos;
+ global.number +=1;
+ if (global.lc == global.number)
+    {
+    loop = false;
+    loops = false;
+    global.lc = 1;
+    i += 1;
+    }
+}
+break;
+case true:
+
+if (loop == true)
+{
+ i = ds_list_find_index(global.code, o_loopstart);
+ startpos = ds_list_find_index(global.code, o_loopstart)
+ endpos = ds_list_find_index(global.code, o_loopend)
+ listposition = endpos - startpos;
+ global.number +=1;
+ if (3 == global.number)
+    {
+    loop = false;
+    loops = false;
+    global.lc = 1;
+    i += 1;
+    }
+}
+break;
+
+}
+
+
+
+
+alarm[0] = room_speed;  
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+ 
+
+ }
+ 
+ if (i> ds_list_size(global.code))
+ {
+ global.coding = false;
+ ds_list_clear(global.code);
+ i = 0;
+ t=0;
+ loop = false;
+loops = false;
+global.lc = 1;
+global.number = 0;
+ 
+ alarm[0] = -1;
+ alarm[1] = -1;
+ alarm[2] = -1;
+ alarm[3] = -1;
+ alarm[4] = -1;
+global.two1 = false;
+global.two2 = false;
+global.two3 = false;
+global.two4 = false;
+global.two5 = false;
+global.two6 = false;
+global.two7 = false;
+global.two8 = false;
+global.two9 = false;
+global.two10 = false;
+global.two11= false;
+global.two12 = false;
+global.three1 = false;
+global.three2 = false;
+global.three3 = false;
+global.three4 = false;
+global.three5 = false;
+global.three6 = false;
+global.three7 = false;
+global.three8 = false;
+global.three9 = false;
+global.three10 = false;
+global.three11= false;
+global.three12 = false;
+
+ 
+}
+
+Alarm Event for alarm 1:
+
+execute code:
+
+if (upcounter < 76) && (chara.y - 75 > -5)
+{
+upcounter +=5
+chara.y -=5;
+alarm[1] = room_speed / 30;
+
+}
+if (chara.y - 75 < 0){global.errorcheckup = true;}
+
+if (upcounter >= 75)
+{
+if (chara.y - 75 > 1){global.errorcheckup = false;}
+upcounter = 0;
+alarm[1] = -1;
+
+}
+
+
+
+Alarm Event for alarm 2:
+
+execute code:
+
+if (upcounter < 76) && (chara.y + 75 < 445)
+{
+upcounter +=5
+chara.y +=5;
+alarm[2] = room_speed / 30;
+
+}
+if (chara.y + 75 > 430){global.errorcheckdown = true;}
+
+if (upcounter >= 75)
+{
+upcounter = 0;
+alarm[2] = -1;
+if (chara.y + 75 < 430){global.errorcheckdown = false;}
+
+}
+
+Alarm Event for alarm 3:
+
+execute code:
+
+if (upcounter < 76) && (chara.x - 75 > -40)
+{
+upcounter +=5
+chara.x -=5;
+alarm[3] = room_speed / 30;
+
+
+}
+if (chara.x - 75 < -35){global.errorcheckleft = true;}
+if (upcounter >= 75)
+{
+upcounter = 0;
+alarm[3] = -1;
+if (chara.x - 75 > -34){global.errorcheckleft = false;}
+
+}
+
+Alarm Event for alarm 4:
+
+execute code:
+
+if (upcounter < 76) && (chara.x + 75 < 860)
+{
+upcounter +=5
+chara.x +=5;
+alarm[4] = room_speed / 30;
+
+
+}
+if (chara.x + 75 > 855){global.errorcheckright = true;}
+if (upcounter >= 75)
+{
+upcounter = 0;
+alarm[4] = -1;
+if (chara.x + 75 < 854){global.errorcheckright = false;}
+}
+
+Step Event:
+
+for all chara: execute code:
+
+if global.flip = 0
+{
+image_xscale = 1;
+}
+
+if global.flip = -1
+{
+image_xscale = -1;
+}
+
+if ((global.two1 == true) && (ds_list_find_value(global.code,0) == o_loopstart)) 
+|| ((global.two2 == true) && (ds_list_find_value(global.code,1) == o_loopstart))  
+|| ((global.two3 == true) && (ds_list_find_value(global.code,2) == o_loopstart))  
+|| ((global.two4 == true) && (ds_list_find_value(global.code,3) == o_loopstart)) 
+|| ((global.two5 == true) && (ds_list_find_value(global.code,4) == o_loopstart))  
+|| ((global.two6 == true) && (ds_list_find_value(global.code,5) == o_loopstart))  
+|| ((global.two7 == true) && (ds_list_find_value(global.code,6) == o_loopstart)) 
+|| ((global.two8 == true) && (ds_list_find_value(global.code,7) == o_loopstart))
+|| ((global.two9 == true) && (ds_list_find_value(global.code,8) == o_loopstart))
+|| ((global.two10 == true) && (ds_list_find_value(global.code,9) == o_loopstart)) 
+|| ((global.two11 == true) && (ds_list_find_value(global.code,10) == o_loopstart)) 
+|| ((global.two12 == true) && (ds_list_find_value(global.code,11) == o_loopstart))
+{
+L = true;
+}
+
+Mouse Event for Left Pressed:
+
+set the sprite to go with subimage 1 and speed 0
+Mouse Event for Left Released:
+
+if expression global.coding is not true
+      execute code:
+
+i = 0;
+global.coding  = true;
+alarm [0] = room_speed;
+instance_create(-20, 534,o_listtick)
+
+      for all chara: set the sprite to character with subimage 0 and speed 3
+set the sprite to go with subimage 0 and speed 0
