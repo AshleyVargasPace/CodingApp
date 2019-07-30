@@ -41,6 +41,20 @@ itemhold = false;
 global.number = 0;
 global.lc = 1;
 
+global.two1L = false;
+global.two2L = false;
+global.two3L = false;
+global.two4L = false;
+global.two5L = false;
+global.two6L = false;
+global.two7L = false;
+global.two8L = false;
+global.two9L = false;
+global.two10L = false;
+global.two11L= false;
+global.two12L = false;
+
+
 global.three1 = false;
 global.three2 = false;
 global.three3 = false;
@@ -53,6 +67,19 @@ global.three9 = false;
 global.three10 = false;
 global.three11= false;
 global.three12 = false;
+
+global.three1L = false;
+global.three2L = false;
+global.three3L = false;
+global.three4L = false;
+global.three5L = false;
+global.three6L = false;
+global.three7L = false;
+global.three8L = false;
+global.three9L = false;
+global.three10L = false;
+global.three11L = false;
+global.three12L = false;
 
 
 Alarm Event for alarm 0:
@@ -122,18 +149,20 @@ if ((global.two1 == true) && (i == 0)) || ((global.two2 == true) && (i == 1)) ||
     i-=1
 
 
-if i = -1{global.two1 = false;}
-if i = 0{global.two2 = false;}
-if i = 1{global.two3 = false;}
-if i = 2{global.two4 = false;}
-if i = 3{global.two5 = false;}
-if i = 4{global.two6 = false;}
-if i = 5{global.two7 = false;}
-if i = 6{global.two8 = false;}
-if i = 7{global.two9 = false;}
-if i = 8{global.two10 = false;}
-if i = 9{global.two11 = false;}
-if i = 10{global.two12 = false;}
+if i = -1 {global.two1 = false; global.two1L = true;}
+if i = 0 {global.two2 = false; global.two2L = true;}
+if i = 1 {global.two3 = false; global.two3L = true;}
+if i = 2 {global.two4 = false; global.two4L = true;}
+if i = 3 {global.two5 = false; global.two5L = true;}
+if i = 4{global.two6 = false; global.two6L = true;}
+if i = 5{global.two7 = false; global.two7L = true;}
+if i = 6{global.two8 = false; global.two8L = true;}
+if i = 7{global.two9 = false; global.two9L = true;}
+if i = 8{global.two10 = false; global.two10L = true;}
+if i = 9{global.two11 = false; global.two11L = true;}
+if i = 10{global.two12 = false; global.two12L = true;}
+
+
 }
 
 
@@ -148,29 +177,30 @@ if ((global.three1 == true) && (i == 0)) || ((global.three2 == true) && (i == 1)
 if t = 2 && (global.three1 == true)
 {global.three1 = false;
 t -=2;
+global.three1L = true;
 }
 if t = 2 && (global.three2 == true){global.three2 = false;
-t-=2;}
+t-=2; global.three2L = true;}
 if t = 2 && (global.three3 == true){global.three3 = false;
-t -=2;}
+t -=2; global.three3L = true;}
 if t = 2 && (global.three4 == true){global.three4 = false;
-t -=2;}
+t -=2; global.three4L = true;}
 if t = 2{global.three5 = false;
-t -=2;}
+t -=2; global.three5L = true;}
 if t = 2{global.three6 = false;
-t -=2;}
+t -=2; global.three6L = true;}
 if t = 2{global.three7 = false;
-t -=2;}
+t -=2; global.three7L = true;}
 if t = 2{global.three8 = false;
-t -=2;}
+t -=2; global.three8L = true;}
 if t = 2{global.three9 = false;
-t -=2;}
+t -=2; global.three9L = true;}
 if t = 2{global.three10 = false;
-t -=2;}
+t -=2; global.three10L = true;}
 if t = 2{global.three11 = false;
-t -=2;}
+t -=2; global.three11L = true;}
 if t = 2{global.three12 = false;
-t -=2;}
+t -=2; global.three12L = true;}
 }
 
 
@@ -195,6 +225,30 @@ switch (L)
 case false:
 if (loop == true)
 {
+ if global.two1L = true { global.two1 = true;}
+ if global.two2L = true { global.two2 = true;}
+ if global.two3L = true { global.two3 = true;}
+ if global.two4L = true { global.two4 = true;}
+ if global.two5L = true { global.two5 = true;}
+ if global.two6L = true { global.two6 = true;}
+ if global.two7L = true { global.two7 = true;}
+ if global.two8L = true { global.two8 = true;}
+ if global.two9L = true { global.two9 = true;}
+ if global.two10L = true { global.two10 = true;}
+ if global.two11L = true { global.two11 = true;}
+ if global.two12L = true { global.two12 = true;}
+ if global.three1L = true{ global.three1 =true;}
+ if global.three2L = true{ global.three2 =true;}
+ if global.three3L = true{ global.three3 =true;}
+ if global.three4L = true{ global.three4 =true;}
+ if global.three5L = true{ global.three5 =true;}
+ if global.three6L = true{ global.three6 =true;}
+ if global.three7L = true{ global.three7 =true;}
+ if global.three8L = true{ global.three8 =true;}
+ if global.three9L = true{ global.three9 =true;}
+ if global.three10L = true{ global.three10 =true;}
+ if global.three11L = true{ global.three11 =true;}
+ if global.three12L = true{ global.three12 =true;}
  i = ds_list_find_index(global.code, o_loopstart);
  startpos = ds_list_find_index(global.code, o_loopstart)
  endpos = ds_list_find_index(global.code, o_loopend)
@@ -213,6 +267,30 @@ case true:
 
 if (loop == true)
 {
+ if global.two1L = true { global.two1 = true;}
+ if global.two2L = true { global.two2 = true;}
+ if global.two3L = true { global.two3 = true;}
+ if global.two4L = true { global.two4 = true;}
+ if global.two5L = true { global.two5 = true;}
+ if global.two6L = true { global.two6 = true;}
+ if global.two7L = true { global.two7 = true;}
+ if global.two8L = true { global.two8 = true;}
+ if global.two9L = true { global.two9 = true;}
+ if global.two10L = true { global.two10 = true;}
+ if global.two11L = true { global.two11 = true;}
+ if global.two12L = true { global.two12 = true;}
+ if global.three1L = true{ global.three1 =true;}
+ if global.three2L = true{ global.three2 =true;}
+ if global.three3L = true{ global.three3 =true;}
+ if global.three4L = true{ global.three4 =true;}
+ if global.three5L = true{ global.three5 =true;}
+ if global.three6L = true{ global.three6 =true;}
+ if global.three7L = true{ global.three7 =true;}
+ if global.three8L = true{ global.three8 =true;}
+ if global.three9L = true{ global.three9 =true;}
+ if global.three10L = true{ global.three10 =true;}
+ if global.three11L = true{ global.three11 =true;}
+ if global.three12L = true{ global.three12 =true;}
  i = ds_list_find_index(global.code, o_loopstart);
  startpos = ds_list_find_index(global.code, o_loopstart)
  endpos = ds_list_find_index(global.code, o_loopend)
@@ -282,7 +360,30 @@ global.three9 = false;
 global.three10 = false;
 global.three11= false;
 global.three12 = false;
-
+global.two1L = false;
+global.two2L = false;
+global.two3L = false;
+global.two4L = false;
+global.two5L = false;
+global.two6L = false;
+global.two7L = false;
+global.two8L = false;
+global.two9L = false;
+global.two10L = false;
+global.two11L= false;
+global.two12L = false;
+global.three1L = false;
+global.three2L = false;
+global.three3L = false;
+global.three4L = false;
+global.three5L = false;
+global.three6L = false;
+global.three7L = false;
+global.three8L = false;
+global.three9L = false;
+global.three10L = false;
+global.three11L = false;
+global.three12L = false;
  
 }
 
