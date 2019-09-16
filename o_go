@@ -1,91 +1,3 @@
-Information about object: o_go
-Sprite: go
-Solid: false
-Visible: true
-Depth: -2
-Persistent: false
-Parent: 
-Children: 
-Mask: 
-
-No Physics Object
-Create Event:
-
-set the sprite to go with subimage 0 and speed 0
-execute code:
-
-global.coding = false;
-upcounter = 0;
-global.flip = 0;
-i = 0;
-t=0;
-L = false;
-global.two1 = false;
-global.two2 = false;
-global.two3 = false;
-global.two4 = false;
-global.two5 = false;
-global.two6 = false;
-global.two7 = false;
-global.two8 = false;
-global.two9 = false;
-global.two10 = false;
-global.two11= false;
-global.two12 = false;
-global.errorcheckup = false;
-global.errorcheckdown = false;
-global.errorcheckleft = false;
-global.errorcheckright = false;
-loop = false;
-itemhold = false;
-global.number = 0;
-global.lc = 1;
-
-global.two1L = false;
-global.two2L = false;
-global.two3L = false;
-global.two4L = false;
-global.two5L = false;
-global.two6L = false;
-global.two7L = false;
-global.two8L = false;
-global.two9L = false;
-global.two10L = false;
-global.two11L= false;
-global.two12L = false;
-
-
-global.three1 = false;
-global.three2 = false;
-global.three3 = false;
-global.three4 = false;
-global.three5 = false;
-global.three6 = false;
-global.three7 = false;
-global.three8 = false;
-global.three9 = false;
-global.three10 = false;
-global.three11= false;
-global.three12 = false;
-
-global.three1L = false;
-global.three2L = false;
-global.three3L = false;
-global.three4L = false;
-global.three5L = false;
-global.three6L = false;
-global.three7L = false;
-global.three8L = false;
-global.three9L = false;
-global.three10L = false;
-global.three11L = false;
-global.three12L = false;
-
-
-Alarm Event for alarm 0:
-
-execute code:
-
 if (0<ds_list_size(global.code))
 
 {
@@ -94,117 +6,7 @@ if (0<ds_list_size(global.code))
             {
             alarm[1] = room_speed / 30;
             alarm[0] = 0;
-            }
-            if (val == o_down) 
-            {
-            alarm[2] = room_speed / 30;
-            alarm[0] = 0;
-            }
-            if (val == o_left)
-            {
-            alarm[3] = room_speed / 30;
-            alarm[0] = 0;
-            global.flip = -1;
-            }
-            if (val == o_right)
-            {
-            alarm[4] = room_speed / 30;
-            alarm[0] = 0;
-            global.flip = 0;
-            }
-            if (val == o_loopstart)
-            {
-            alarm[0] = 0;
-            loops = true;
-            }
-            if (val == o_loopend)
-            {
-            alarm[0] = 0;
-            if loops = true{
-            loop = true;}
-            }
-            if (val == o_pickup)
-            {
-            alarm[0] = 0;
-            if global.itemtouch = true
-                {
-                instance_destroy(o_item);
-                itemhold = true;
-                }
-            }
-            if (val == o_drop)
-            {
-            alarm[0] = 0;
-            if itemhold = true{
-            instance_create(chara.x, chara.y + 50, o_item);
-            itemhold = false;
-            }
-            }
-          
-
-if ((global.two1 == true) && (i == 0)) || ((global.two2 == true) && (i == 1)) || ((global.two3 == true) && (i == 2)) || ((global.two4 == true) && (i == 3))
-|| ((global.two5 == true) && (i == 4)) || ((global.two6 == true) && (i == 5)) || ((global.two7 == true) && (i == 6)) || ((global.two8 == true) && (i == 7))
-|| ((global.two9 == true) && (i == 8)) || ((global.two10 == true) && (i == 9)) || ((global.two11 == true) && (i == 10)) || ((global.two12 == true) && (i == 11))
-{
-    i-=1
-
-
-if i = -1 {global.two1 = false; global.two1L = true;}
-if i = 0 {global.two2 = false; global.two2L = true;}
-if i = 1 {global.two3 = false; global.two3L = true;}
-if i = 2 {global.two4 = false; global.two4L = true;}
-if i = 3 {global.two5 = false; global.two5L = true;}
-if i = 4{global.two6 = false; global.two6L = true;}
-if i = 5{global.two7 = false; global.two7L = true;}
-if i = 6{global.two8 = false; global.two8L = true;}
-if i = 7{global.two9 = false; global.two9L = true;}
-if i = 8{global.two10 = false; global.two10L = true;}
-if i = 9{global.two11 = false; global.two11L = true;}
-if i = 10{global.two12 = false; global.two12L = true;}
-
-
-}
-
-
-if ((global.three1 == true) && (i == 0)) || ((global.three2 == true) && (i == 1)) || ((global.three3 == true) && (i == 2)) || ((global.three4 == true) && (i == 3))
-|| ((global.three5 == true) && (i == 4)) || ((global.three6 == true) && (i == 5)) || ((global.three7 == true) && (i == 6)) || ((global.three8 == true) && (i == 7))
-|| ((global.three9 == true) && (i == 8)) || ((global.three10 == true) && (i == 9)) || ((global.three11 == true) && (i == 10)) || ((global.three12 == true) && (i == 11))
-{
-    i-=1
-    t+=1
-
-
-if t = 2 && (global.three1 == true)
-{global.three1 = false;
-t -=2;
-global.three1L = true;
-}
-if t = 2 && (global.three2 == true){global.three2 = false;
-t-=2; global.three2L = true;}
-if t = 2 && (global.three3 == true){global.three3 = false;
-t -=2; global.three3L = true;}
-if t = 2 && (global.three4 == true){global.three4 = false;
-t -=2; global.three4L = true;}
-if t = 2{global.three5 = false;
-t -=2; global.three5L = true;}
-if t = 2{global.three6 = false;
-t -=2; global.three6L = true;}
-if t = 2{global.three7 = false;
-t -=2; global.three7L = true;}
-if t = 2{global.three8 = false;
-t -=2; global.three8L = true;}
-if t = 2{global.three9 = false;
-t -=2; global.three9L = true;}
-if t = 2{global.three10 = false;
-t -=2; global.three10L = true;}
-if t = 2{global.three11 = false;
-t -=2; global.three11L = true;}
-if t = 2{global.three12 = false;
-t -=2; global.three12L = true;}
-}
-
-
-if i = 0{o_listtick.x = 45;}
+            if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
 if i = 2{o_listtick.x = 175;}
 if i = 3{o_listtick.x = 240;}
@@ -216,97 +18,469 @@ if i = 8{o_listtick.x = 565;}
 if i = 9{o_listtick.x = 630;}
 if i = 10{o_listtick.x = 695;}
 if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_down) 
+            {
+            alarm[2] = room_speed / 30;
+            alarm[0] = 0;
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_left)
+            {
+            alarm[3] = room_speed / 30;
+            alarm[0] = 0;
+            global.flip = -1;
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_right)
+            {
+            alarm[4] = room_speed / 30;
+            alarm[0] = 0;
+            global.flip = 0;
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_loopstart)
+            {
+            if (val == o_loopstart) && (i ==0) && (global.two1 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==1) && (global.two2 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==2) && (global.two3 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==3) && (global.two4 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==4) && (global.two5 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==5) && (global.two6 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==6) && (global.two7 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==7) && (global.two8 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==8) && (global.two9 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==9) && (global.two10 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==10) && (global.two11 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==11) && (global.two12 == true) {global.L = true;}
+            if (val == o_loopstart) && (i ==0) && (global.three1 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==1) && (global.three2 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==2) && (global.three3 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==3) && (global.three4 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==4) && (global.three5 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==5) && (global.three6 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==6) && (global.three7 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==7) && (global.three8 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==8) && (global.three9 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==9) && (global.three10 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==10) && (global.three11 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==11) && (global.three12 == true) {global.L2 = true;}
+            if (val == o_loopstart) && (i ==0) && (global.four1 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==1) && (global.four2 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==2) && (global.four3 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==3) && (global.four4 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==4) && (global.four5 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==5) && (global.four6 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==6) && (global.four7 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==7) && (global.four8 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==8) && (global.four9 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==9) && (global.four10 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==10) && (global.four11 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==11) && (global.four12 == true) {global.L3 = true;}
+            if (val == o_loopstart) && (i ==0) && (global.five1 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==1) && (global.five2 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==2) && (global.five3 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==3) && (global.five4 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==4) && (global.five5 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==5) && (global.five6 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==6) && (global.five7 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==7) && (global.five8 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==8) && (global.five9 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==9) && (global.five10 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==10) && (global.five11 == true) {global.L4 = true;}
+            if (val == o_loopstart) && (i ==11) && (global.five12 == true) {global.L4 = true;}
+            alarm[0] = 0;
+            loops = true;
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_loopend)
+            {
+                alarm[0] = 0;
+                   if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+                if lop = false{
+                    if loops = true && lop = false
+                    {
+                
+                    global.number +=1;
+                    if global.loopingend = false 
+                    {
+                    global.loopingend = true;
+                    }
+                    loop = true;
+               
+                
+        if global.two1L = true { global.two1 = true;}
+        if global.two2L = true { global.two2 = true;}
+        if global.two3L = true { global.two3 = true;}
+        if global.two4L = true { global.two4 = true;}
+        if global.two5L = true { global.two5 = true;}
+        if global.two6L = true { global.two6 = true;}
+        if global.two7L = true { global.two7 = true;}
+        if global.two8L = true { global.two8 = true;}
+        if global.two9L = true { global.two9 = true;}
+        if global.two10L = true { global.two10 = true;}
+        if global.two11L = true { global.two11 = true;}
+        if global.two12L = true { global.two12 = true;}
+        if global.three1L = true{ global.three1 =true;}
+        if global.three2L = true{ global.three2 =true;}
+        if global.three3L = true{ global.three3 =true;}
+        if global.three4L = true{ global.three4 =true;}
+        if global.three5L = true{ global.three5 =true;}
+        if global.three6L = true{ global.three6 =true;}
+        if global.three7L = true{ global.three7 =true;}
+        if global.three8L = true{ global.three8 =true;}
+        if global.three9L = true{ global.three9 =true;}
+        if global.three10L = true{ global.three10 =true;}
+        if global.three11L = true{ global.three11 =true;}
+        if global.three12L = true{ global.three12 =true;}
+        if global.four1L = true { global.four1 = true;}
+        if global.four2L = true { global.four2 = true;}
+        if global.four3L = true { global.four3 = true;}
+        if global.four4L = true { global.four4 = true;}
+        if global.four5L = true { global.four5 = true;}
+        if global.four6L = true { global.four6 = true;}
+        if global.four7L = true { global.four7 = true;}
+        if global.four8L = true { global.four8 = true;}
+        if global.four9L = true { global.four9 = true;}
+        if global.four10L = true { global.four10 = true;}
+        if global.four11L = true { global.four11 = true;}
+        if global.four12L = true { global.four12 = true;}
+        if global.five1L = true { global.five1 = true;}
+        if global.five2L = true { global.five2 = true;}
+        if global.five3L = true { global.five3 = true;}
+        if global.five4L = true { global.five4 = true;}
+        if global.five5L = true { global.five5 = true;}
+        if global.five6L = true { global.five6 = true;}
+        if global.five7L = true { global.five7 = true;}
+        if global.five8L = true { global.five8 = true;}
+        if global.five9L = true { global.five9 = true;}
+        if global.five10L = true { global.five10 = true;}
+        if global.five11L = true { global.five11 = true;}
+        if global.five12L = true { global.five12 = true;}
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+        if global.totalloops = 0{
+        i = ds_list_find_index(global.code, o_loopstart)-1;
+        }
+        if global.totalloops > 0 {
+        i = ds_list_find_index(global.code, o_loopstart)
+        }
+                k=ds_list_find_index(global.code, o_loopstart);
+                p = ds_list_find_index(global.code, o_loopend)
+        
+    }
+    
+    }
+    
+ 
+    
+            }
+            if (val == o_pickup)
+            {
+            alarm[0] = 0;
+            if global.itemtouch = true
+                {
+                instance_destroy(o_item);
+                itemhold = true;
+                }
+                if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+            if (val == o_drop)
+            {
+            alarm[0] = 0;
+            if itemhold = true{
+            instance_create(chara.x, chara.y + 50, o_item);
+            itemhold = false;
+            }
+            if i = 0{o_listtick.x = 45;}
+if i = 1{o_listtick.x = 110;}
+if i = 2{o_listtick.x = 175;}
+if i = 3{o_listtick.x = 240;}
+if i = 4{o_listtick.x = 305;}
+if i = 5{o_listtick.x = 370;}
+if i = 6{o_listtick.x = 435;}
+if i = 7{o_listtick.x = 500;}
+if i = 8{o_listtick.x = 565;}
+if i = 9{o_listtick.x = 630;}
+if i = 10{o_listtick.x = 695;}
+if i = 11{o_listtick.x = 760;}
+            }
+          
+if (val == o_up) || (val == o_down) ||  (val == o_left) || (val == o_right){
+if ((global.two1 == true) && (i == 0)) || ((global.two2 == true) && (i == 1)) || ((global.two3 == true) && (i == 2)) || ((global.two4 == true) && (i == 3))
+|| ((global.two5 == true) && (i == 4)) || ((global.two6 == true) && (i == 5)) || ((global.two7 == true) && (i == 6)) || ((global.two8 == true) && (i == 7))
+|| ((global.two9 == true) && (i == 8)) || ((global.two10 == true) && (i == 9)) || ((global.two11 == true) && (i == 10)) || ((global.two12 == true) && (i == 11))
+{
+    i-=1
+    o = i + 1;
+
+
+    if i = -1 {global.two1 = false; global.two1L = true;}
+    if i = 0 {global.two2 = false; global.two2L = true;}
+    if i = 1 {global.two3 = false; global.two3L = true;}
+    if i = 2 {global.two4 = false; global.two4L = true;}
+    if i = 3 {global.two5 = false; global.two5L = true;}
+    if i = 4{global.two6 = false; global.two6L = true;}
+    if i = 5{global.two7 = false; global.two7L = true;}
+    if i = 6{global.two8 = false; global.two8L = true;}
+    if i = 7{global.two9 = false; global.two9L = true;}
+    if i = 8{global.two10 = false; global.two10L = true;}
+    if i = 9{global.two11 = false; global.two11L = true;}
+    if i = 10{global.two12 = false; global.two12L = true;}
+}
+}
+if (val == o_up) || (val == o_down) ||  (val == o_left) || (val == o_right){
+if ((global.three1 == true) && (i == 0)) || ((global.three2 == true) && (i == 1)) || ((global.three3 == true) && (i == 2)) || ((global.three4 == true) && (i == 3))
+|| ((global.three5 == true) && (i == 4)) || ((global.three6 == true) && (i == 5)) || ((global.three7 == true) && (i == 6)) || ((global.three8 == true) && (i == 7))
+|| ((global.three9 == true) && (i == 8)) || ((global.three10 == true) && (i == 9)) || ((global.three11 == true) && (i == 10)) || ((global.three12 == true) && (i == 11))
+{
+    i-=1
+    t+=1
+    o = 1 + 1;
+
+    if t = 2 && (global.three1 = true)
+    {global.three1 = false;
+    t -=2; global.three1L = true;}
+    
+    if t = 2 && (global.three2 = true)
+    {global.three2 = false;
+    t-=2; global.three2L = true;}
+    
+    if t = 2 && (global.three3 = true){global.three3 = false;
+    t -=2; global.three3L = true;}
+    
+    if t = 2 && (global.three4 = true){global.three4 = false;
+    t -=2; global.three4L = true;}
+    
+    if t = 2 && (global.three5 = true){global.three5 = false;
+    t -=2; global.three5L = true;}
+    
+    if t = 2 && (global.three6 = true){global.three6 = false;
+    t -=2; global.three6L = true;}
+    
+    if t = 2&& (global.three7 = true){global.three7 = false;
+    t -=2; global.three7L = true;}
+    
+    if t = 2 && (global.three8 = true){global.three8 = false;
+    t -=2; global.three8L = true;}
+    
+    if t = 2&& (global.three9 = true){global.three9 = false;
+    t -=2; global.three9L = true;}
+    
+    if t = 2 && (global.three10 = true){global.three10 = false;
+    t -=2; global.three10L = true;}
+    
+    if t = 2&& (global.three11 = true){global.three11 = false;
+    t -=2; global.three11L = true;}
+    
+    if t = 2 && (global.three12 = true){global.three12 = false;
+    t -=2; global.three12L = true;}
+
+}
+}
+
+if (val == o_up) || (val == o_down) ||  (val == o_left) || (val == o_right){
+if ((global.four1 == true) && (i == 0)) || ((global.four2 == true) && (i == 1)) || ((global.four3 == true) && (i == 2)) || ((global.four4 == true) && (i == 3))
+|| ((global.four5 == true) && (i == 4)) || ((global.four6 == true) && (i == 5)) || ((global.four7 == true) && (i == 6)) || ((global.four8 == true) && (i == 7))
+|| ((global.four9 == true) && (i == 8)) || ((global.four10 == true) && (i == 9)) || ((global.four11 == true) && (i == 10)) || ((global.four12 == true) && (i == 11))
+{
+    i-=1
+    f+=1
+    o = 1 + 1;
+
+    if f = 3 && (global.four1 == true)
+    {global.four1 = false;
+    f -=3;
+    global.four1L = true;
+    }
+    if f = 3 && (global.four2 == true){global.four2 = false;
+    f-=3; global.four2L = true;}
+    
+    if f = 3 && (global.four3 == true){global.four3 = false;
+    f -=3; global.four3L = true;}
+    
+    if f = 3 && (global.four4 == true){global.four4 = false;
+    f -=3; global.four4L = true;}
+    
+    if f = 3 && (global.four5 == true){global.four5 = false;
+    f -=3; global.four5L = true;}
+    
+    if f = 3 && (global.four6 == true){global.four6 = false;
+    f -=3; global.four6L = true;}
+    
+    if f = 3&& (global.four7 == true){global.four7 = false;
+    f -=3; global.four7L = true;}
+    
+    if f = 3 && (global.four8 == true){global.four8 = false;
+    f -=3; global.four8L = true;}
+    
+    if f = 3 && (global.four9 == true){global.four9 = false;
+    f -=3; global.four9L = true;}
+    
+    if f = 3 && (global.four10 == true){global.four10 = false;
+    f -=3; global.four10L = true;}
+    
+    if f = 3 && (global.four11 == true){global.four11 = false;
+    f -=3; global.four11L = true;}
+    
+    if f = 3 && (global.four12 == true)
+    {global.four12 = false;
+    f -=3; global.four12L = true;}
+
+}
+}
+
+if (val == o_up) || (val == o_down) ||  (val == o_left) || (val == o_right){
+if ((global.five1 == true) && (i == 0)) || ((global.five2 == true) && (i == 1)) || ((global.five3 == true) && (i == 2)) || ((global.five4 == true) && (i == 3))
+|| ((global.five5 == true) && (i == 4)) || ((global.five6 == true) && (i == 5)) || ((global.five7 == true) && (i == 6)) || ((global.five8 == true) && (i == 7))
+|| ((global.five9 == true) && (i == 8)) || ((global.five10 == true) && (i == 9)) || ((global.five11 == true) && (i == 10)) || ((global.five12 == true) && (i == 11))
+{
+    i-=1
+    v+=1
+    o = 1 + 1;
+
+    if v = 4 && (global.five1 == true)
+    {global.five1 = false;
+    v -=4;
+    global.five1L = true;
+    }
+    
+    if v = 4 && (global.five2 == true){global.five2 = false;
+    v -=4; global.five2L = true;}
+    
+    if v = 4 && (global.five3 == true){global.five3 = false;
+    v -=4; global.five3L = true;}
+    
+    if v = 4 && (global.five4 == true){global.five4 = false;
+    v -=4; global.five4L = true;}
+    
+    if v = 4 && (global.five5 == true){global.five5 = false;
+    v -=4; global.five5L = true;}
+    
+    if v = 4 && (global.five6 == true){global.five6 = false;
+    v -=4; global.five6L = true;}
+    
+    if v = 4 && (global.five7 == true){global.five7 = false;
+    v -=4; global.five7L = true;}
+    
+    if v = 4 && (global.five8 == true){global.five8 = false;
+    v -=4; global.five8L = true;}
+    
+    if v = 4 && (global.five9 == true){global.five9 = false;
+    v -=4; global.five9L = true;}
+    
+    if v = 4 && (global.five10 == true){global.five10 = false;
+    v -=4; global.five10L = true;}
+    
+    if v = 4 && (global.five11 == true){global.five11 = false;
+    v -=4; global.five11L = true;}
+    
+    if v = 4 && (global.five12 == true){global.five12 = false;
+    v -=4; global.five12L = true;}
+
+}
+}
+
+
 
 i += 1;
+o = i;
 
 
-switch (L)
-{
-case false:
-if (loop == true)
-{
- if global.two1L = true { global.two1 = true;}
- if global.two2L = true { global.two2 = true;}
- if global.two3L = true { global.two3 = true;}
- if global.two4L = true { global.two4 = true;}
- if global.two5L = true { global.two5 = true;}
- if global.two6L = true { global.two6 = true;}
- if global.two7L = true { global.two7 = true;}
- if global.two8L = true { global.two8 = true;}
- if global.two9L = true { global.two9 = true;}
- if global.two10L = true { global.two10 = true;}
- if global.two11L = true { global.two11 = true;}
- if global.two12L = true { global.two12 = true;}
- if global.three1L = true{ global.three1 =true;}
- if global.three2L = true{ global.three2 =true;}
- if global.three3L = true{ global.three3 =true;}
- if global.three4L = true{ global.three4 =true;}
- if global.three5L = true{ global.three5 =true;}
- if global.three6L = true{ global.three6 =true;}
- if global.three7L = true{ global.three7 =true;}
- if global.three8L = true{ global.three8 =true;}
- if global.three9L = true{ global.three9 =true;}
- if global.three10L = true{ global.three10 =true;}
- if global.three11L = true{ global.three11 =true;}
- if global.three12L = true{ global.three12 =true;}
- i = ds_list_find_index(global.code, o_loopstart);
- startpos = ds_list_find_index(global.code, o_loopstart)
- endpos = ds_list_find_index(global.code, o_loopend)
- listposition = endpos - startpos;
- global.number +=1;
- if (global.lc == global.number)
+if loop = true {
+    if (global.lc == global.number)
     {
     loop = false;
     loops = false;
-    global.lc = 1;
-    i += 1;
-    }
+    global.lc = 0;
+    ds_list_replace(global.code, k, loopfake);
+    global.loopingend = false;
+    global.totalloops += 1;
+   
+    global.number = 0;
+    
+    
+    }    
 }
-break;
-case true:
 
-if (loop == true)
-{
- if global.two1L = true { global.two1 = true;}
- if global.two2L = true { global.two2 = true;}
- if global.two3L = true { global.two3 = true;}
- if global.two4L = true { global.two4 = true;}
- if global.two5L = true { global.two5 = true;}
- if global.two6L = true { global.two6 = true;}
- if global.two7L = true { global.two7 = true;}
- if global.two8L = true { global.two8 = true;}
- if global.two9L = true { global.two9 = true;}
- if global.two10L = true { global.two10 = true;}
- if global.two11L = true { global.two11 = true;}
- if global.two12L = true { global.two12 = true;}
- if global.three1L = true{ global.three1 =true;}
- if global.three2L = true{ global.three2 =true;}
- if global.three3L = true{ global.three3 =true;}
- if global.three4L = true{ global.three4 =true;}
- if global.three5L = true{ global.three5 =true;}
- if global.three6L = true{ global.three6 =true;}
- if global.three7L = true{ global.three7 =true;}
- if global.three8L = true{ global.three8 =true;}
- if global.three9L = true{ global.three9 =true;}
- if global.three10L = true{ global.three10 =true;}
- if global.three11L = true{ global.three11 =true;}
- if global.three12L = true{ global.three12 =true;}
- i = ds_list_find_index(global.code, o_loopstart);
- startpos = ds_list_find_index(global.code, o_loopstart)
- endpos = ds_list_find_index(global.code, o_loopend)
- listposition = endpos - startpos;
- global.number +=1;
- if (3 == global.number)
-    {
-    loop = false;
-    loops = false;
-    global.lc = 1;
-    i += 1;
-    }
-}
-break;
 
-}
+
+
 
 
 
@@ -320,16 +494,27 @@ global.errorcheckright = false;
 
  }
  
- if (i> ds_list_size(global.code))
- {
+if (i> ds_list_size(global.code))
+{
  global.coding = false;
- ds_list_clear(global.code);
+ 
  i = 0;
  t=0;
+ f=0;
+ v=0;
+ o=0;
  loop = false;
+ lop = false;
 loops = false;
-global.lc = 1;
+global.L =false;
+global.L2 =false;
+global.L3 =false;
+global.L4 =false;
+global.lc = 0;
 global.number = 0;
+global.totalloops = 0;
+global.loopingend = false;
+
  
  alarm[0] = -1;
  alarm[1] = -1;
@@ -384,136 +569,53 @@ global.three9L = false;
 global.three10L = false;
 global.three11L = false;
 global.three12L = false;
+global.four1 = false;
+global.four2 = false;
+global.four3 = false;
+global.four4 = false;
+global.four5 = false;
+global.four6 = false;
+global.four7 = false;
+global.four8 = false;
+global.four9 = false;
+global.four10 = false;
+global.four11 = false;
+global.four12 = false;
+global.four1L = false;
+global.four2L = false;
+global.four3L = false;
+global.four4L = false;
+global.four5L = false;
+global.four6L = false;
+global.four7L = false;
+global.four8L = false;
+global.four9L = false;
+global.four10L = false;
+global.four11L = false;
+global.four12L = false;
+global.five1 = false;
+global.five2 = false;
+global.five3 = false;
+global.five4 = false;
+global.five5 = false;
+global.five6 = false;
+global.five7 = false;
+global.five8 = false;
+global.five9 = false;
+global.five10 = false;
+global.five11 = false;
+global.five12 = false;
+global.five1L = false;
+global.five2L = false;
+global.five3L = false;
+global.five4L = false;
+global.five5L = false;
+global.five6L = false;
+global.five7L = false;
+global.five8L = false;
+global.five9L = false;
+global.five10L = false;
+global.five11L = false;
+global.five12L = false;
  
 }
-
-Alarm Event for alarm 1:
-
-execute code:
-
-if (upcounter < 76) && (chara.y - 75 > -5)
-{
-upcounter +=5
-chara.y -=5;
-alarm[1] = room_speed / 30;
-
-}
-if (chara.y - 75 < 0){global.errorcheckup = true;}
-
-if (upcounter >= 75)
-{
-if (chara.y - 75 > 1){global.errorcheckup = false;}
-upcounter = 0;
-alarm[1] = -1;
-
-}
-
-
-
-Alarm Event for alarm 2:
-
-execute code:
-
-if (upcounter < 76) && (chara.y + 75 < 445)
-{
-upcounter +=5
-chara.y +=5;
-alarm[2] = room_speed / 30;
-
-}
-if (chara.y + 75 > 430){global.errorcheckdown = true;}
-
-if (upcounter >= 75)
-{
-upcounter = 0;
-alarm[2] = -1;
-if (chara.y + 75 < 430){global.errorcheckdown = false;}
-
-}
-
-Alarm Event for alarm 3:
-
-execute code:
-
-if (upcounter < 76) && (chara.x - 75 > -40)
-{
-upcounter +=5
-chara.x -=5;
-alarm[3] = room_speed / 30;
-
-
-}
-if (chara.x - 75 < -35){global.errorcheckleft = true;}
-if (upcounter >= 75)
-{
-upcounter = 0;
-alarm[3] = -1;
-if (chara.x - 75 > -34){global.errorcheckleft = false;}
-
-}
-
-Alarm Event for alarm 4:
-
-execute code:
-
-if (upcounter < 76) && (chara.x + 75 < 860)
-{
-upcounter +=5
-chara.x +=5;
-alarm[4] = room_speed / 30;
-
-
-}
-if (chara.x + 75 > 855){global.errorcheckright = true;}
-if (upcounter >= 75)
-{
-upcounter = 0;
-alarm[4] = -1;
-if (chara.x + 75 < 854){global.errorcheckright = false;}
-}
-
-Step Event:
-
-for all chara: execute code:
-
-if global.flip = 0
-{
-image_xscale = 1;
-}
-
-if global.flip = -1
-{
-image_xscale = -1;
-}
-
-if ((global.two1 == true) && (ds_list_find_value(global.code,0) == o_loopstart)) 
-|| ((global.two2 == true) && (ds_list_find_value(global.code,1) == o_loopstart))  
-|| ((global.two3 == true) && (ds_list_find_value(global.code,2) == o_loopstart))  
-|| ((global.two4 == true) && (ds_list_find_value(global.code,3) == o_loopstart)) 
-|| ((global.two5 == true) && (ds_list_find_value(global.code,4) == o_loopstart))  
-|| ((global.two6 == true) && (ds_list_find_value(global.code,5) == o_loopstart))  
-|| ((global.two7 == true) && (ds_list_find_value(global.code,6) == o_loopstart)) 
-|| ((global.two8 == true) && (ds_list_find_value(global.code,7) == o_loopstart))
-|| ((global.two9 == true) && (ds_list_find_value(global.code,8) == o_loopstart))
-|| ((global.two10 == true) && (ds_list_find_value(global.code,9) == o_loopstart)) 
-|| ((global.two11 == true) && (ds_list_find_value(global.code,10) == o_loopstart)) 
-|| ((global.two12 == true) && (ds_list_find_value(global.code,11) == o_loopstart))
-{
-L = true;
-}
-
-Mouse Event for Left Pressed:
-
-set the sprite to go with subimage 1 and speed 0
-Mouse Event for Left Released:
-
-if expression global.coding is not true
-      execute code:
-
-i = 0;
-global.coding  = true;
-alarm [0] = room_speed;
-instance_create(-20, 534,o_listtick)
-
-      for all chara: set the sprite to character with subimage 0 and speed 3
-set the sprite to go with subimage 0 and speed 0
