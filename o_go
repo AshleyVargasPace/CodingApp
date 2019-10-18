@@ -1,9 +1,20 @@
 if (0<ds_list_size(global.code))
 
 {
+ global.nextstep = ds_list_find_value(global.code, global.ll + 1)
+ global.laststep = ds_list_find_value(global.code, global.ll - 1)
+
+ 
  val = ds_list_find_value(global.code, i);
+ 
             if (val == o_up) 
             {
+    if (chara.y - 75 < 0) && (global.nextstep == undefined) && (global.atedgetop == true)
+        {global.errorcheckup = true}
+        if global.atedgetop == true
+        {
+        {global.errorcheckup = true}
+        }
             alarm[1] = room_speed / 30;
             alarm[0] = 0;
             if i = 0{o_listtick.x = 45;}
@@ -18,11 +29,14 @@ if i = 8{o_listtick.x = 565;}
 if i = 9{o_listtick.x = 630;}
 if i = 10{o_listtick.x = 695;}
 if i = 11{o_listtick.x = 760;}
+
             }
             if (val == o_down) 
             {
             alarm[2] = room_speed / 30;
             alarm[0] = 0;
+            if (chara.y + 75 > 400)  && (global.nextstep == undefined) && (global.atedgeb == true)
+        {global.errorcheckdown = true}
             if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
 if i = 2{o_listtick.x = 175;}
@@ -40,6 +54,8 @@ if i = 11{o_listtick.x = 760;}
             {
             alarm[3] = room_speed / 30;
             alarm[0] = 0;
+            if (chara.x - 75 < -35) && (global.nextstep == undefined) && (global.atedgeleft == true)
+{global.errorcheckleft = true}
             global.flip = -1;
             if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
@@ -53,13 +69,16 @@ if i = 8{o_listtick.x = 565;}
 if i = 9{o_listtick.x = 630;}
 if i = 10{o_listtick.x = 695;}
 if i = 11{o_listtick.x = 760;}
+
             }
             if (val == o_right)
             {
             alarm[4] = room_speed / 30;
             alarm[0] = 0;
+            if (chara.x + 75 > 855) && (global.nextstep == undefined) && (global.atedgeright == true)
+{global.errorcheckright = true}
             global.flip = 0;
-            if i = 0{o_listtick.x = 45;}
+if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
 if i = 2{o_listtick.x = 175;}
 if i = 3{o_listtick.x = 240;}
@@ -71,6 +90,7 @@ if i = 8{o_listtick.x = 565;}
 if i = 9{o_listtick.x = 630;}
 if i = 10{o_listtick.x = 695;}
 if i = 11{o_listtick.x = 760;}
+
             }
             if (val == o_loopstart)
             {
@@ -247,7 +267,11 @@ if i = 11{o_listtick.x = 760;}
                 instance_destroy(o_item);
                 itemhold = true;
                 }
-                if i = 0{o_listtick.x = 45;}
+            if global.itemtouch = false
+            {
+            global.itemerror = true;
+            }
+if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
 if i = 2{o_listtick.x = 175;}
 if i = 3{o_listtick.x = 240;}
@@ -260,14 +284,23 @@ if i = 9{o_listtick.x = 630;}
 if i = 10{o_listtick.x = 695;}
 if i = 11{o_listtick.x = 760;}
             }
-            if (val == o_drop)
+
+if (val == o_drop)
             {
             alarm[0] = 0;
-            if itemhold = true{
-            instance_create(chara.x, chara.y + 50, o_item);
-            itemhold = false;
+            if itemhold = true
+            {
+            instance_create(chara.x, chara.y + 50, o_item)
             }
-            if i = 0{o_listtick.x = 45;}
+            
+            if itemhold = false
+            {
+            global.holderror = true;
+            
+            }
+            
+            
+if i = 0{o_listtick.x = 45;}
 if i = 1{o_listtick.x = 110;}
 if i = 2{o_listtick.x = 175;}
 if i = 3{o_listtick.x = 240;}
@@ -359,6 +392,7 @@ if ((global.four1 == true) && (i == 0)) || ((global.four2 == true) && (i == 1)) 
 || ((global.four5 == true) && (i == 4)) || ((global.four6 == true) && (i == 5)) || ((global.four7 == true) && (i == 6)) || ((global.four8 == true) && (i == 7))
 || ((global.four9 == true) && (i == 8)) || ((global.four10 == true) && (i == 9)) || ((global.four11 == true) && (i == 10)) || ((global.four12 == true) && (i == 11))
 {
+
     i-=1
     f+=1
     o = 1 + 1;
@@ -459,6 +493,8 @@ if ((global.five1 == true) && (i == 0)) || ((global.five2 == true) && (i == 1)) 
 
 
 i += 1;
+global.ll = i;
+
 o = i;
 
 
@@ -490,14 +526,17 @@ global.errorcheckup = false;
 global.errorcheckdown = false;
 global.errorcheckleft = false;
 global.errorcheckright = false;
+global.itemerror = false;
+global.holderror = false;
  
 
  }
  
 if (i> ds_list_size(global.code))
 {
+ds_list_clear(global.code)
  global.coding = false;
- 
+ global.ll = 0;
  i = 0;
  t=0;
  f=0;
@@ -514,6 +553,7 @@ global.lc = 0;
 global.number = 0;
 global.totalloops = 0;
 global.loopingend = false;
+ds_stack_clear(global.loopstack);
 
  
  alarm[0] = -1;
