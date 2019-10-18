@@ -1,0 +1,30 @@
+if (upcounter < 76) && (chara.y + 75 < 445)
+{
+upcounter +=5
+chara.y +=5;
+alarm[2] = room_speed / 30;
+
+}
+
+///error checking for down///
+if (chara.y + 75 > 400)  && (global.nextstep == o_down)
+{global.errorcheckdown = true;}
+
+if (chara.y + 75 > 400) && (global.nextstep == undefined) && (global.atedgeb == true)
+{global.errorcheckdown = true}
+
+if (chara.x - 75 < -35) && (global.nextstep == o_left) && (global.atedgeleft == true)
+{alarm[5] = .5 * room_speed}
+
+if (chara.x + 75 > 855) && (global.nextstep == o_right) && (global.atedgeright == true)
+{alarm[5] = .5 * room_speed}
+
+///error checking end///
+
+if (upcounter >= 75)
+{
+upcounter = 0;
+alarm[2] = -1;
+if (chara.y + 75 < 430){global.errorcheckdown = false;}
+
+}
