@@ -1,0 +1,6 @@
+alarm[5] = -1
+
+global.errorcheckup = true;
+global.errorcheckleft = true;
+global.errorcheckdown = true;
+global.errorcheckright = true;
