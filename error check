@@ -1,0 +1,463 @@
+execute code:
+
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+
+alarm[0] = -1;
+
+Step Event:
+
+execute code:
+
+
+if (chara.y - 75 > 1) {global.errorcheckup = false;}
+if (chara.y + 75 < 400){global.errorcheckdown = false;} 
+if (chara.x - 75 > -4){global.errorcheckleft = false;}
+if (chara.x + 75 < 854){global.errorcheckright = false;}
+//toprow
+switch(rectangle_in_rectangle(0, 80, 807, 147, chara.x - 15, chara.y - 15, chara.x + 15, chara.y+15))
+{
+case 0: global.atedgetop = false; break;
+case 1: global.atedgetop = true; break;
+case 2: global.atedgetop = true; break;
+
+}
+
+//leftrow
+switch(rectangle_in_rectangle(0, 80, 71, 457, chara.x - 15, chara.y - 15, chara.x + 15, chara.y+15))
+{
+case 0: global.atedgeleft = false; break;
+case 1: global.atedgeleft = true; break;
+case 2: global.atedgeleft = true; break;
+
+}
+
+//bottomrow
+switch(rectangle_in_rectangle(0, 385, 807, 457, chara.x - 15, chara.y - 15, chara.x + 15, chara.y+15))
+{
+case 0: global.atedgeb = false; break;
+case 1: global.atedgeb = true; break;
+case 2: global.atedgeb = true; break;
+
+}
+
+//rightrow
+switch(rectangle_in_rectangle(750, 80, 807, 457, chara.x - 15, chara.y - 15, chara.x + 15, chara.y+15))
+{
+case 0: global.atedgeright = false; break;
+case 1: global.atedgeright = true; break;
+case 2: global.atedgeright = true; break;
+
+}
+
+if expression global.itemerror is true
+      execute code:
+
+instance_create(x,y,o_showerrorpick)
+ds_list_clear(global.coding);
+global.coding = false;
+ global.ll = 0;
+ i = 0;
+ t=0;
+ f=0;
+ v=0;
+ o=0;
+ loop = false;
+ lop = false;
+loops = false;
+global.L =false;
+global.L2 =false;
+global.L3 =false;
+global.L4 =false;
+global.lc = 0;
+global.number = 0;
+global.totalloops = 0;
+global.loopingend = false;
+ds_stack_clear(global.loopstack);
+
+ 
+ alarm[0] = -1;
+ alarm[1] = -1;
+ alarm[2] = -1;
+ alarm[3] = -1;
+ alarm[4] = -1;
+global.two1 = false;
+global.two2 = false;
+global.two3 = false;
+global.two4 = false;
+global.two5 = false;
+global.two6 = false;
+global.two7 = false;
+global.two8 = false;
+global.two9 = false;
+global.two10 = false;
+global.two11= false;
+global.two12 = false;
+global.three1 = false;
+global.three2 = false;
+global.three3 = false;
+global.three4 = false;
+global.three5 = false;
+global.three6 = false;
+global.three7 = false;
+global.three8 = false;
+global.three9 = false;
+global.three10 = false;
+global.three11= false;
+global.three12 = false;
+global.two1L = false;
+global.two2L = false;
+global.two3L = false;
+global.two4L = false;
+global.two5L = false;
+global.two6L = false;
+global.two7L = false;
+global.two8L = false;
+global.two9L = false;
+global.two10L = false;
+global.two11L= false;
+global.two12L = false;
+global.three1L = false;
+global.three2L = false;
+global.three3L = false;
+global.three4L = false;
+global.three5L = false;
+global.three6L = false;
+global.three7L = false;
+global.three8L = false;
+global.three9L = false;
+global.three10L = false;
+global.three11L = false;
+global.three12L = false;
+global.four1 = false;
+global.four2 = false;
+global.four3 = false;
+global.four4 = false;
+global.four5 = false;
+global.four6 = false;
+global.four7 = false;
+global.four8 = false;
+global.four9 = false;
+global.four10 = false;
+global.four11 = false;
+global.four12 = false;
+global.four1L = false;
+global.four2L = false;
+global.four3L = false;
+global.four4L = false;
+global.four5L = false;
+global.four6L = false;
+global.four7L = false;
+global.four8L = false;
+global.four9L = false;
+global.four10L = false;
+global.four11L = false;
+global.four12L = false;
+global.five1 = false;
+global.five2 = false;
+global.five3 = false;
+global.five4 = false;
+global.five5 = false;
+global.five6 = false;
+global.five7 = false;
+global.five8 = false;
+global.five9 = false;
+global.five10 = false;
+global.five11 = false;
+global.five12 = false;
+global.five1L = false;
+global.five2L = false;
+global.five3L = false;
+global.five4L = false;
+global.five5L = false;
+global.five6L = false;
+global.five7L = false;
+global.five8L = false;
+global.five9L = false;
+global.five10L = false;
+global.five11L = false;
+global.five12L = false;
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+global.itemerror = false;
+global.holderror = false;
+alarm[0] = .5 * room_speed;
+
+if expression global.holderror is true
+      execute code:
+
+instance_create(x,y,o_showerrordrop)
+ds_list_clear(global.coding);
+global.coding = false;
+ global.ll = 0;
+ i = 0;
+ t=0;
+ f=0;
+ v=0;
+ o=0;
+ loop = false;
+ lop = false;
+loops = false;
+global.L =false;
+global.L2 =false;
+global.L3 =false;
+global.L4 =false;
+global.lc = 0;
+global.number = 0;
+global.totalloops = 0;
+global.loopingend = false;
+ds_stack_clear(global.loopstack);
+
+ 
+ alarm[0] = -1;
+ alarm[1] = -1;
+ alarm[2] = -1;
+ alarm[3] = -1;
+ alarm[4] = -1;
+global.two1 = false;
+global.two2 = false;
+global.two3 = false;
+global.two4 = false;
+global.two5 = false;
+global.two6 = false;
+global.two7 = false;
+global.two8 = false;
+global.two9 = false;
+global.two10 = false;
+global.two11= false;
+global.two12 = false;
+global.three1 = false;
+global.three2 = false;
+global.three3 = false;
+global.three4 = false;
+global.three5 = false;
+global.three6 = false;
+global.three7 = false;
+global.three8 = false;
+global.three9 = false;
+global.three10 = false;
+global.three11= false;
+global.three12 = false;
+global.two1L = false;
+global.two2L = false;
+global.two3L = false;
+global.two4L = false;
+global.two5L = false;
+global.two6L = false;
+global.two7L = false;
+global.two8L = false;
+global.two9L = false;
+global.two10L = false;
+global.two11L= false;
+global.two12L = false;
+global.three1L = false;
+global.three2L = false;
+global.three3L = false;
+global.three4L = false;
+global.three5L = false;
+global.three6L = false;
+global.three7L = false;
+global.three8L = false;
+global.three9L = false;
+global.three10L = false;
+global.three11L = false;
+global.three12L = false;
+global.four1 = false;
+global.four2 = false;
+global.four3 = false;
+global.four4 = false;
+global.four5 = false;
+global.four6 = false;
+global.four7 = false;
+global.four8 = false;
+global.four9 = false;
+global.four10 = false;
+global.four11 = false;
+global.four12 = false;
+global.four1L = false;
+global.four2L = false;
+global.four3L = false;
+global.four4L = false;
+global.four5L = false;
+global.four6L = false;
+global.four7L = false;
+global.four8L = false;
+global.four9L = false;
+global.four10L = false;
+global.four11L = false;
+global.four12L = false;
+global.five1 = false;
+global.five2 = false;
+global.five3 = false;
+global.five4 = false;
+global.five5 = false;
+global.five6 = false;
+global.five7 = false;
+global.five8 = false;
+global.five9 = false;
+global.five10 = false;
+global.five11 = false;
+global.five12 = false;
+global.five1L = false;
+global.five2L = false;
+global.five3L = false;
+global.five4L = false;
+global.five5L = false;
+global.five6L = false;
+global.five7L = false;
+global.five8L = false;
+global.five9L = false;
+global.five10L = false;
+global.five11L = false;
+global.five12L = false;
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+global.itemerror = false;
+global.holderror = false;
+alarm[0] = .5 * room_speed;
+
+if expression global.errorcheckup && global.errorcheckdown && global.errorcheckleft && global.errorcheckright is not true
+      set the sprite to error with subimage 2 and speed 0
+if expression global.errorcheckup || global.errorcheckdown || global.errorcheckleft || global.errorcheckright is true
+      execute code:
+
+instance_create(x,y,o_showerror)
+ds_list_clear(global.coding);
+global.coding = false;
+ global.ll = 0;
+ i = 0;
+ t=0;
+ f=0;
+ v=0;
+ o=0;
+ loop = false;
+ lop = false;
+loops = false;
+global.L =false;
+global.L2 =false;
+global.L3 =false;
+global.L4 =false;
+global.lc = 0;
+global.number = 0;
+global.totalloops = 0;
+global.loopingend = false;
+ds_stack_clear(global.loopstack);
+
+ 
+ alarm[0] = -1;
+ alarm[1] = -1;
+ alarm[2] = -1;
+ alarm[3] = -1;
+ alarm[4] = -1;
+global.two1 = false;
+global.two2 = false;
+global.two3 = false;
+global.two4 = false;
+global.two5 = false;
+global.two6 = false;
+global.two7 = false;
+global.two8 = false;
+global.two9 = false;
+global.two10 = false;
+global.two11= false;
+global.two12 = false;
+global.three1 = false;
+global.three2 = false;
+global.three3 = false;
+global.three4 = false;
+global.three5 = false;
+global.three6 = false;
+global.three7 = false;
+global.three8 = false;
+global.three9 = false;
+global.three10 = false;
+global.three11= false;
+global.three12 = false;
+global.two1L = false;
+global.two2L = false;
+global.two3L = false;
+global.two4L = false;
+global.two5L = false;
+global.two6L = false;
+global.two7L = false;
+global.two8L = false;
+global.two9L = false;
+global.two10L = false;
+global.two11L= false;
+global.two12L = false;
+global.three1L = false;
+global.three2L = false;
+global.three3L = false;
+global.three4L = false;
+global.three5L = false;
+global.three6L = false;
+global.three7L = false;
+global.three8L = false;
+global.three9L = false;
+global.three10L = false;
+global.three11L = false;
+global.three12L = false;
+global.four1 = false;
+global.four2 = false;
+global.four3 = false;
+global.four4 = false;
+global.four5 = false;
+global.four6 = false;
+global.four7 = false;
+global.four8 = false;
+global.four9 = false;
+global.four10 = false;
+global.four11 = false;
+global.four12 = false;
+global.four1L = false;
+global.four2L = false;
+global.four3L = false;
+global.four4L = false;
+global.four5L = false;
+global.four6L = false;
+global.four7L = false;
+global.four8L = false;
+global.four9L = false;
+global.four10L = false;
+global.four11L = false;
+global.four12L = false;
+global.five1 = false;
+global.five2 = false;
+global.five3 = false;
+global.five4 = false;
+global.five5 = false;
+global.five6 = false;
+global.five7 = false;
+global.five8 = false;
+global.five9 = false;
+global.five10 = false;
+global.five11 = false;
+global.five12 = false;
+global.five1L = false;
+global.five2L = false;
+global.five3L = false;
+global.five4L = false;
+global.five5L = false;
+global.five6L = false;
+global.five7L = false;
+global.five8L = false;
+global.five9L = false;
+global.five10L = false;
+global.five11L = false;
+global.five12L = false;
+global.errorcheckup = false;
+global.errorcheckdown = false;
+global.errorcheckleft = false;
+global.errorcheckright = false;
+alarm[0] = .5 * room_speed;
+
+if expression global.correct = false && global.coding = false && global.nested = false  is true
+      set the sprite to error with subimage 1 and speed 0
+if expression global.correct = false && global.coding = false && global.nested = true is true
+      set the sprite to error with subimage 3 and speed 0
